@@ -3,7 +3,7 @@ import { Employee } from '../services/employee.model';
 import { EmployeeService } from '../services/EmployeeService';
 
 @Component({
-  selector: 'app-employee-list',
+  selector: 'app-delete-employee',
   templateUrl: './delete-employee.component.html',
   styleUrls: ['./delete-employee.component.css']
 })
@@ -30,7 +30,7 @@ export class DeleteEmployeeComponent implements OnInit {
   // Method to filter employees based on search query
   onSearch() {
     if (this.searchQuery) {
-      this.filteredEmployees = this.employees.filter(employee =>
+      this.filteredEmployees = this.employees.filter((employee) =>
         employee.name.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     } else {
@@ -40,9 +40,19 @@ export class DeleteEmployeeComponent implements OnInit {
 
   // Method to delete an employee
   deleteEmployee(employee: Employee) {
-    // Implement the logic to delete the employee from the database here
-    // For now, let's just remove the employee from the filteredEmployees list
-    this.filteredEmployees = this.filteredEmployees.filter(emp => emp.id !== employee.id);
-    this.selectedEmployee = null; // Reset selectedEmployee to hide the employee details
+    // Show a confirmation dialog before deleting the employee
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeService.deleteEmployee(employee.id).subscribe(
+        () => {
+          // Employee deleted successfully from the backend, now update the frontend
+          this.filteredEmployees = this.filteredEmployees.filter((emp) => emp.id !== employee.id);
+          this.selectedEmployee = null; // Reset selectedEmployee to hide the employee details
+        },
+        (error) => {
+          console.error('Error deleting employee:', error);
+          // Handle the error appropriately (e.g., show a notification)
+        }
+      );
+    }
   }
 }

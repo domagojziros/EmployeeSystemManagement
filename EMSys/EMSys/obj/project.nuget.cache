@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RmdaUCNp62PAxkBz5W3RX6nUrE5XALk8Ey65nxTk52+sKYchFL1nWDy4oUKqXBZrmsqvBaFgPVITRd/Qoee92A==",
+  "dgSpecHash": "tUdATAvJAqhmk5sOT2g+AfJaicwsmXYeDkZjlsT0W+Whuh82MpcbwZK0yYn/4utLddRjCZz23a4MGOv5somg3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\domagoj.ziros\\EMSys\\EMSys.csproj",
+  "projectFilePath": "C:\\Users\\domagoj.ziros\\EmployeeSystemManagement\\EMSys\\EMSys\\EMSys.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\domagoj.ziros\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\domagoj.ziros\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

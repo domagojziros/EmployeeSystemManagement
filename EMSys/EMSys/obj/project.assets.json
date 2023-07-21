@@ -4108,11 +4108,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\domagoj.ziros\\EMSys\\EMSys.csproj",
+      "projectUniqueName": "C:\\Users\\domagoj.ziros\\EmployeeSystemManagement\\EMSys\\EMSys\\EMSys.csproj",
       "projectName": "EMSys",
-      "projectPath": "C:\\Users\\domagoj.ziros\\EMSys\\EMSys.csproj",
+      "projectPath": "C:\\Users\\domagoj.ziros\\EmployeeSystemManagement\\EMSys\\EMSys\\EMSys.csproj",
       "packagesPath": "C:\\Users\\domagoj.ziros\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\domagoj.ziros\\EMSys\\obj\\",
+      "outputPath": "C:\\Users\\domagoj.ziros\\EmployeeSystemManagement\\EMSys\\EMSys\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\domagoj.ziros\\AppData\\Roaming\\NuGet\\NuGet.Config",

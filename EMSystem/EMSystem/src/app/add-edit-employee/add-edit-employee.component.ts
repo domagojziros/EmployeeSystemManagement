@@ -11,25 +11,25 @@ export class AddEditEmployeeComponent implements OnInit {
   employees: Employee[] = [];
   filteredEmployees: Employee[] = [];
   searchQuery: string = '';
-  selectedEmployee: Employee | null = null;
-  selectedEmployeeCopy: Employee | null = null; // Copy of selectedEmployee for editing
-  editMode: boolean = false; // Edit mode flag
-  showAddForm: boolean = false; // Add form display flag
+  selectedEmployee: Employee = { id: 0, name: '', email: '', department: '', jobTitle: '', salary: 0 };
+  newEmployee: Employee = { id: 0, name: '', email: '', department: '', jobTitle: '', salary: 0 };
+  editMode: boolean = false;
+  showAddForm: boolean = false;
+  showEditForm: boolean = false;
+  
+
 
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
-    this.employeeService.getEmployees().subscribe((data) => {
-      console.log('Received employee data:');
-      console.log(data);
-      this.employees = data;
-      this.filteredEmployees = data; // Initialize filteredEmployees with all employees initially
-    });
+    this.refreshEmployeeList();
   }
 
-  onEmployeeClick(employee: Employee) {
-    console.log('Clicked on employee:', employee);
-    this.selectedEmployee = employee;
+  refreshEmployeeList() {
+    this.employeeService.getEmployees().subscribe((data) => {
+      this.employees = data;
+      this.filteredEmployees = data;
+    });
   }
 
   onSearch() {
@@ -44,47 +44,43 @@ export class AddEditEmployeeComponent implements OnInit {
 
   addEmployee() {
     this.showAddForm = true;
-    this.selectedEmployee = null; // Initialize selectedEmployee as null for adding a new employee
-    this.editMode = false; // Set editMode to false, as it's a new employee being added
+    this.showEditForm = false; 
+    this.selectedEmployee = { id: 0, name: '', email: '', department: '', jobTitle: '', salary: 0 };
   }
   
-
   editEmployee(employee: Employee) {
     this.selectedEmployee = { ...employee };
-    this.selectedEmployeeCopy = { ...employee };
     this.editMode = true;
+    this.showEditForm = true;
   }
 
   saveEmployeeChanges() {
     if (this.editMode && this.selectedEmployee) {
-      // Check if editMode is true and selectedEmployee is not null
-      // Implement the logic to save the changes to the employee here
-      // For now, let's just deselect the employee after saving changes
-      this.selectedEmployee = null;
-      this.editMode = false;
+      this.employeeService.updateEmployee(this.selectedEmployee).subscribe(() => {
+        this.showEditForm = false; // Close the edit form
+        this.editMode = false; // Reset editMode to false
+        this.refreshEmployeeList();
+      });
     }
   }
 
   cancelEdit() {
-    if (this.selectedEmployeeCopy) {
-      this.selectedEmployee = { ...this.selectedEmployeeCopy };
-      this.selectedEmployeeCopy = null;
-    }
-    this.editMode = false;
+    this.showEditForm = false; // Close the edit form without saving changes
+    this.editMode = false; // Reset editMode to false
   }
 
-  addNewEmployee(employee: Employee) {
-    // Implement the logic to add the new employee to the database here
-    // For now, let's just add the employee to the employees list
-    this.employees.push(employee);
+  saveNewEmployee() {
+    this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
+      this.newEmployee = { id: 0, name: '', email: '', department: '', jobTitle: '', salary: 0 };
+      this.showAddForm = false;
 
-    // Clear the selectedEmployee and showAddForm flags after adding
-    this.selectedEmployee = null;
-    this.showAddForm = false;
+      // Refresh the employee list after adding the new employee
+      this.refreshEmployeeList();
+    });
   }
 
   cancelAddNewEmployee() {
-    this.selectedEmployee = null;
+    this.newEmployee = { id: 0, name: '', email: '', department: '', jobTitle: '', salary: 0 };
     this.showAddForm = false;
   }
 }

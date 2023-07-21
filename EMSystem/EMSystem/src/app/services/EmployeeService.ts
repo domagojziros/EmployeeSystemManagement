@@ -7,7 +7,7 @@ import { Employee } from './employee.model';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiUrl = 'https://localhost:7053/api/employees';
+  private apiUrl = 'https://localhost:7053/api/employees'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 
@@ -28,14 +28,4 @@ export class EmployeeService {
     const url = `${this.apiUrl}/${employee.id}`;
     return this.http.put<Employee>(url, employee);
   }
-
-  addNewEmployee(employee: Employee): Observable<Employee> {
-    return this.http.post<Employee>(this.apiUrl, employee);
-  }
-
-  saveEmployeeChanges(employee: Employee): Observable<Employee> {
-    return this.http.put<Employee>(`${this.apiUrl}/${employee.id}`, employee);
-  }
-  
-  
 }

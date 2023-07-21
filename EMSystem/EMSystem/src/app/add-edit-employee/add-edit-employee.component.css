@@ -1,12 +1,12 @@
-/* Add your CSS styles here */
-
 .header {
-  margin-left: 790px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
 }
 
 .employee-list-container {
-  width: 250px;
-  margin-left: 830px;
+  max-width: 250px;
+  margin: 0 auto;
   margin-top: 20px;
 }
 
@@ -17,17 +17,15 @@
   padding: 8px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 450px;
-  margin-left: 730px;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
-/* Search Icon */
 .search-icon {
   margin-right: 8px;
   color: #333;
 }
 
-/* Search Input */
 .search-input {
   flex: 1;
   border: none;
@@ -36,7 +34,6 @@
   background-color: transparent;
 }
 
-/* Employee Item */
 .employee-item {
   display: flex;
   align-items: center;
@@ -59,33 +56,114 @@
   color: #007bff;
 }
 
-/* Flex container */
 .flex-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Container for the plus button */
 .add-button-container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 10px; /* Adjust the margin as needed */
+  margin-top: 10px;
 }
 
-/* Style for the plus button */
 .add-button {
   font-size: 18px;
   color: green;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin-left: 45px;
 }
 
-/* Style for the text next to the plus button */
 .add-button-text {
-  font-size: 14;
-  margin-left: 45px;
+  font-size: 14px;
+}
+
+.employee-form-container {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.employee-form-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+button[type="cancel"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="cancel"]:hover {
+  background-color: #0056b3;
+}
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .header {
+    margin-left: 0;
+  }
+
+  .employee-list-container {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .search-container {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .add-button-container {
+    margin-left: 0;
+  }
 }
