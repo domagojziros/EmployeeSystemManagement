@@ -1,0 +1,41 @@
+<!-- Header -->
+<h1 class="header">Add or Edit Employee</h1>
+
+<!-- Search bar -->
+<div class="search-container">
+  <span class="search-icon">
+    <i class="pi pi-search"></i>
+  </span>
+  <input type="text" class="search-input" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Search by name">
+</div>
+
+<!-- Plus button for adding new employee -->
+<div class="add-button-container">
+  <button pButton pRipple type="button" icon="pi pi-plus" class="add-button" (click)="addEmployee()"></button>
+  <span class="add-button-text">Add new employee</span>
+</div>
+
+<!-- Employee List -->
+<div class="employee-list-container">
+  <div class="card">
+    <p-dataView #dv [value]="filteredEmployees" [paginator]="true" [rows]="7" layout="list">
+      <ng-template let-employee pTemplate="listItem">
+        <div class="p-col-12">
+          <div class="employee-item">
+            <span class="employee-name">{{ employee.name }}</span>
+            <button pButton pRipple type="button" icon="pi pi-pencil" class="edit-button" (click)="editEmployee(employee)"></button>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </div>
+</div>
+
+<!-- Employee Form for adding/editing employee -->
+<app-employee-form *ngIf="showAddForm || editMode"
+                   [employee]="selectedEmployee"
+                   (saveEmployee)="saveEmployeeChanges()"
+                   (cancelEmployee)="cancelAddNewEmployee()"
+                   (saveNewEmployee)="addNewEmployee($event)"
+                   (cancelNewEmployee)="cancelAddNewEmployee()">
+</app-employee-form>

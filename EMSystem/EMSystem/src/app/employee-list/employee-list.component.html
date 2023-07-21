@@ -1,0 +1,42 @@
+<!-- Header -->
+<h1 class="header">Employee Management System</h1>
+
+<!-- Search bar -->
+<div class="search-container">
+  <span class="search-icon">
+    <i class="pi pi-search"></i>
+  </span>
+  <input type="text" class="search-input" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Search by name">
+</div>
+<!-- Employee List -->
+<div class="employee-list-container">
+  <div class="card">
+    <p-dataView #dv [value]="filteredEmployees" [paginator]="true" [rows]="7" layout="list">
+      <ng-template let-employee pTemplate="listItem">
+        <div class="p-col-12">
+          <div class="employee-item">
+            <button pButton pRipple type="button" label="{{ employee.name }}" class="modern-button" (click)="onEmployeeClick(employee)"></button>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </div>
+</div>
+
+<!-- Employee Details -->
+<div class="employee-details-container" *ngIf="selectedEmployee">
+  <div class="card">
+    <div class="employee-details-content">
+      <h2>Employee Info:</h2>
+      <p><strong>Name:</strong> {{ selectedEmployee.name }}</p>
+      <p><strong>Email:</strong> {{ selectedEmployee.email }}</p>
+      <p><strong>Department:</strong> {{ selectedEmployee.department }}</p>
+      <p><strong>Job Title:</strong> {{ selectedEmployee.jobTitle }}</p>
+      <p><strong>Salary:</strong> ${{ selectedEmployee.salary }}</p>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,35 @@
+<div class="employee-form-container">
+    <!-- Use ngIf to show either "Add New Employee" or "Edit Employee" -->
+    <h2 *ngIf="!employee">Add New Employee</h2>
+    <h2 *ngIf="employee">Edit Employee</h2>
+    <form *ngIf="employee">
+      <!-- Form fields with ngModel using *ngIf -->
+      <div class="form-group">
+        <label>Name:</label>
+        <input *ngIf="employee" type="text" [(ngModel)]="employee.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input *ngIf="employee" type="email" [(ngModel)]="employee.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label>Department:</label>
+        <input *ngIf="employee" type="text" [(ngModel)]="employee.department" name="department" required>
+      </div>
+      <div class="form-group">
+        <label>Job Title:</label>
+        <input *ngIf="employee" type="text" [(ngModel)]="employee.jobTitle" name="jobTitle" required>
+      </div>
+      <div class="form-group">
+        <label>Salary:</label>
+        <input *ngIf="employee" type="number" [(ngModel)]="employee.salary" name="salary" required>
+      </div>
+      <div class="form-actions">
+        <!-- Use onSaveNewEmployee() instead of onSaveEmployee() -->
+        <button type="button" pButton (click)="onSaveNewEmployee()" label="Save"></button>
+        <!-- Use onCancelNewEmployee() instead of onCancelEmployee() -->
+        <button type="button" pButton (click)="onCancelNewEmployee()" label="Cancel"></button>
+      </div>
+    </form>
+  </div>
+  

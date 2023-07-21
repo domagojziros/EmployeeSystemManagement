@@ -1,0 +1,91 @@
+/* Add your CSS styles here */
+
+.header {
+  margin-left: 790px;
+}
+
+.employee-list-container {
+  width: 250px;
+  margin-left: 830px;
+  margin-top: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  margin-left: 730px;
+}
+
+/* Search Icon */
+.search-icon {
+  margin-right: 8px;
+  color: #333;
+}
+
+/* Search Input */
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+/* Employee Item */
+.employee-item {
+  display: flex;
+  align-items: center;
+}
+
+.employee-name {
+  margin-right: 8px;
+}
+
+.edit-button,
+.add-button {
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.edit-button {
+  color: #007bff;
+}
+
+/* Flex container */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for the plus button */
+.add-button-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Style for the plus button */
+.add-button {
+  font-size: 18px;
+  color: green;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 45px;
+}
+
+/* Style for the text next to the plus button */
+.add-button-text {
+  font-size: 14;
+  margin-left: 45px;
+}
