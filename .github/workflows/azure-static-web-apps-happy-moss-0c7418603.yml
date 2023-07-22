@@ -27,9 +27,9 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/EMSystem/EMSystem/src/app" # App source code path
-          api_location: "/EMSys/EMSys" # Api source code path - optional
-          output_location: "/EMSystem/EMSystem/dist/emsystem" # Built app content directory - optional
+          app_location: /EmployeeSystemManagement/EMSystem/EMSystem/src/app/EMSystem/EMSystem/src/app" # App source code path
+          api_location: "/EmployeeSystemManagement/EMSys/EMSys" # Api source code path - optional
+          output_location: "EmployeeSystemManagement/EMSystem/EMSystem/dist/emsystem" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
